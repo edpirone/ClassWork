@@ -16,9 +16,10 @@ console.log(firstString + secondString);
 // AND USE AN IF/ELSE TO DISPLAY.
 
 var parks = ['Yosemite', 'Acadia', 'Yellowstone', 'Monument Valley'];
-var mountains = ['Half Dome', 'Cascade', 'Gothics', 'Wolf Jaw'];
+var mountains = [['Half Dome', 'Cascade', 'Gothics', 'Wolf Jaw'],['Slide', 'Hunter', 'Black Head', 'Black Dome']];
 
-console.log(parks[2] + ' , ' + mountains[3]);
+console.log(parks[2] + ' , ' + mountains[1][0]);
+console.log(mountains[0][2] + ' is in Yosemite, ' + mountains[1][2] + ' is in the Catskills.')
 
 if (parks.length < 5) {
     console.log('The amount of items in the "parks" array is less than 5.');

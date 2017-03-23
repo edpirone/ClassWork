@@ -144,13 +144,26 @@
 //     heading.innerText = textField.value + "'s Information";
 // };
 
+// ORIGINAL
+
+// var headArray = document.getElementsByTagName("h1");
+//
+// for (i = 0; i < headArray.length; i++) {
+//     headArray[i].addEventListener("click", edsClick);
+// }
+//
+// function edsClick() {
+//   alert(this.innerHTML);
+// }
 
 var headArray = document.getElementsByTagName("h1");
 
 for (i = 0; i < headArray.length; i++) {
+   //  var head = headArray[i];
+
     headArray[i].addEventListener("click", edsClick);
 }
 
-function edsClick(newThing) {
-  alert(this.innerHTML);
+function edsClick() {
+    alert(this.innerHTML);
 }
