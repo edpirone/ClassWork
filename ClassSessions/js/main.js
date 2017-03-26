@@ -480,17 +480,49 @@ var listElements = $(".list li");
 // END PRIOR TO 03.23.17
 // START 03.26.17
 
-$.ajax({
-    type: "GET",
-    url: 'https://api.spotify.com/v1/search',
-    data: {
-        q: 'prince',
-        type: 'artist'
-    },
-    success: function(response) {
-        console.log(response);
+// SPOTIFY EXAMPLE
+// $.ajax({
+//     type: "GET",
+//     url: 'https://api.spotify.com/v1/search',
+//     data: {
+//         q: 'prince',
+//         type: 'artist'
+//     },
+//     success: function(response) {
+//         console.log(response);
+//     }
+// });
+//
+// $.getJSON("http://www.omdbapi.com/?", {
+//     t: "sharknado"
+// }, function(response) {
+//     console.log(response);
+// });
+
+
+
+var searchValue = $("#search").keyup(returnResults);
+
+function returnResults() {
+    var searchLength = $("#search").val().length;
+
+    if (searchLength >= 4) {
+        var searchValue = $("#search").val();
+        $.ajax({
+            url: "http://www.omdbapi.com/?",
+            data: {
+                t: searchValue
+            },
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+            }
+        });
     }
-});
+
+}
+
+
 
 
 // END 03.26.17

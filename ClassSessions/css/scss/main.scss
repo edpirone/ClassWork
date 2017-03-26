@@ -96,10 +96,20 @@ body, html {
 	margin: 20px auto;
 	min-height: calc(100vh - 40px);
 
-	h1 {
-		color: $blue;
+	> h1:first-child {
+		margin: 0px -15px;
+		color: $offWhite;
+		background: $blue;
+		padding: 15px;
 		font-size: 1.2em;
 		text-transform: uppercase;
+		display: block;
+		width: calc(100% + 30px);
+		text-align: center;
+	}
+	h2 {
+		color: darken($offWhite, 30%);
+		font-size: 1.2em;
 	}
 }
 

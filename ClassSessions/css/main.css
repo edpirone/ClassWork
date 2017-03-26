@@ -5909,10 +5909,19 @@ body, html {
   box-shadow: rgba(153, 153, 153, 0.5) 0px 2px 5px;
   margin: 20px auto;
   min-height: calc(100vh - 40px); }
-  .container h1 {
-    color: #2095f2;
+  .container > h1:first-child {
+    margin: 0px -15px;
+    color: #eee;
+    background: #2095f2;
+    padding: 15px;
     font-size: 1.2em;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    display: block;
+    width: calc(100% + 30px);
+    text-align: center; }
+  .container h2 {
+    color: #a2a2a2;
+    font-size: 1.2em; }
 
 .row {
   margin-top: 20px; }
