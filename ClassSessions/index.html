@@ -1,0 +1,285 @@
+<!doctype html>
+
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+	<!-- CHECK IN MAIN.JS FOR THE JAVASCRIPT -->
+
+</head>
+
+
+<body>
+	<div class="container" >
+		<h1>Class 03.26.17</h1>
+
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Spotify</h2>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="container" >
+
+		<h1>Class 03.23.17</h1>
+
+		<div class="row">
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+				<ul class="list">
+					<li>
+						Item 1
+					</li>
+					<li>
+						Item 2
+					</li>
+					<li>
+						Item 3
+					</li>
+				</ul>
+				<button class="btn btn-primary" onclick="doIt()">Make Shit Move</button>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="container" >
+
+		<h1>Class 03.21.17</h1>
+
+		<div class="row">
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-user"></span>
+							</span>
+							<input id="username" type="text" class="form-control" placeholder="Username" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-envelope"></span>
+							</span>
+							<input type="email" class="form-control" placeholder="Email" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-lock"></span>
+							</span>
+							<input id="password" type="password" class="form-control" placeholder="Password" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<button class="btn btn-primary" onclick="validate()"><span class="glyphicon glyphicon-ok"></span>Submit</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p id="validateMessage">
+
+						</p>
+					</div>
+					<div class="col-md-12">
+						<p id="keyLogger">
+
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<h1>0319/17</h1>
+		<div class="row">
+			<ul class="list food">
+				<li>
+					Food List
+					<ul>
+						<li>
+							Item 1
+						</li>
+						<li>
+							Item 2
+						</li>
+						<li>
+							Item 3
+						</li>
+						<li>
+							Item 4
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="list dog">
+				<li>
+					Dog List
+					<ul>
+						<li>
+							Item 1
+						</li>
+						<li>
+							Item 2
+						</li>
+						<li>
+							Item 3
+						</li>
+						<li>
+							Item 4
+						</li>
+						<li>
+							Item 5
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<button id="edsButton" onclick="fixList">Eds Button</button>
+		</div>
+		<div class="row">
+			<h1>First Header</h1>
+			<h1>Second Header</h1>
+			<h1>Third Header</h1>
+		</div>
+	</div>
+
+	<div class="container">
+		<h1>03.16.17</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="frame">
+					<div class="door" onClick="winningDoors('firstDoor')">
+						<h1>Door 1</h1>
+					</div>
+					<div class="door" onClick="winningDoors('secondDoor')">
+						<h1>Door 2</h1>
+					</div>
+					<div class="door" onClick="winningDoors('thirdDoor')">
+						<h1>Door 3</h1>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<h1>03.12.17</h1>
+		<script>
+			// function response() {
+			// 	var myNum = $('#myVariable').val();
+			// 	// var myNum = document.getElementById("myVariable").value;
+			//
+			// 	if (myNum < 10) {
+			// 		alert('Your number is less than 10.');
+			// 	} else if (myNum > 10) {
+			// 		alert('Your number is ' + myNum + ', which is obviously more than 10.');
+			// 	} else {
+			// 		alert('The variable ' + '"' + myNum + '"' + ' is not a number at all baby. It is a string.')
+			// 	}
+			// }
+
+			// function response() {
+			// 	var myNum = $('#myVariable').val();
+			//
+			//
+			// 	if (myNum < 10) {
+			// 		$("#answer").text(function () {
+			// 			return $(this).text().replace("", "Your number is less than 10.");
+			// 		});
+			// 	} else if (myNum > 10) {
+			// 		$("#answer").text(function () {
+			// 			return $(this).text().replace("", "Your number is greater than 10.");
+			// 		});
+			// 	} else {
+			// 		$("#answer").text(function () {
+			// 			return $(this).text().replace("", "Your number a string.");
+			// 		});
+			// 	}
+			}
+		</script>
+		<div class="row">
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+				<label>
+					Enter your number
+					<input id="myVariable" type="text" />
+				</label>
+				<button class="btn btn-primary" onClick="response()">Submit</button>
+
+			</div>
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+				<p id="answer">
+					Answer.
+				</p>
+
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<h1>03.09.17</h1>
+	</div>
+	<div class="container">
+		<h1>02.23.17</h1>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script>
+		window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+	</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+</body>
+
+</html>
