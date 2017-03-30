@@ -5938,6 +5938,11 @@ ul li {
 .inactive {
   background: blue; }
 
+.homeworkScope #hoverGuy {
+  color: #fff;
+  background: red;
+  padding: 40px; }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
