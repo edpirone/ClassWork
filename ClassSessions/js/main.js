@@ -516,6 +516,8 @@ function returnResults() {
             dataType: "json",
             success: function(response) {
                 console.log(response);
+               //  $(".suggestion").text(response['Title']);
+					//  $(".suggestion").html
             }
         });
     }
