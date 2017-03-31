@@ -466,7 +466,7 @@
 //
 // console.log(worker1.description());
 
-var listElements = $(".list li");
+// var listElements = $(".list li");
 
 // for (i = 0; i < listElements.length; i++) {
 
@@ -589,3 +589,45 @@ function validate() {
     }
 }
 // END FORM VALIDATION
+
+// JUKEBOX
+
+var playBtn = $('#jukebox-play');
+var pauseBtn = $('#jukebox-pause');
+var currentSong = $('#jukebox-current-song');
+
+playBtn.click(jukeboxPlay);
+pauseBtn.click(jukeboxPause);
+
+function jukeboxPlay() {
+	 currentSong[0].play();
+}
+
+function jukeboxPause() {
+	 currentSong[0].pause();
+}
+
+function Jukebox() {
+	this.songs = [];
+}
+
+var myJukebox = new Jukebox();
+
+function Song(title, artist, url) {
+    this.title = title;
+    this.artist = artist;
+    this.url = url;
+	//  this.currentSong = function() {
+	// 	 $('#jukebox-current h1').html(this.title);
+	// 	 $('#jukebox-current h2').html(this.artist);
+	// 	 $('#jukebox-current video').attr('src', (this.url));
+	//  }
+    myJukebox.songs.push(this);
+}
+
+var song1 = new Song('J.Cole', 'Return of Simba', 'assets/audio/return-of-simba.mp3');
+var song2 = new Song('Griz', 'Getting Live', 'assets/audio/getting-live.mp3');
+
+// song2.currentSong();
+
+console.log(myJukebox.songs[1].title);
