@@ -501,28 +501,28 @@
 
 
 
-var searchValue = $("#search").keyup(returnResults);
-
-function returnResults() {
-    var searchLength = $("#search").val().length;
-
-    if (searchLength >= 4) {
-        var searchValue = $("#search").val();
-        $.ajax({
-            url: "http://www.omdbapi.com/?",
-            data: {
-                t: searchValue
-            },
-            dataType: "json",
-            success: function(response) {
-                console.log(response);
-                //  $(".suggestion").text(response['Title']);
-                //  $(".suggestion").html
-            }
-        });
-    }
-
-}
+// var searchValue = $("#search").keyup(returnResults);
+//
+// function returnResults() {
+//     var searchLength = $("#search").val().length;
+//
+//     if (searchLength >= 4) {
+//         var searchValue = $("#search").val();
+//         $.ajax({
+//             url: "http://www.omdbapi.com/?",
+//             data: {
+//                 t: searchValue
+//             },
+//             dataType: "json",
+//             success: function(response) {
+//                 console.log(response);
+//                 //  $(".suggestion").text(response['Title']);
+//                 //  $(".suggestion").html
+//             }
+//         });
+//     }
+//
+// }
 
 
 // END 03.26.17
@@ -531,103 +531,112 @@ function returnResults() {
 
 // ISAAC THIS IS THE HOMEWORK FOR DOM ELEMENT STUFF
 
-// BUTTONS ARGUING
-
-$('#person1').click(hello1);
-$('#person2').click(hello2);
-
-function hello1() {
-    $('#argument').html('I am right!');
-}
-
-function hello2() {
-    $('#argument').html('No I am right!');
-}
-
-// END BUTTONS ARGUING
-// DON'T HOVER ON ME DIV
-
-$('#hoverGuy').hover(hover1);
-
-function hover1() {
-    $('#hoverGuy p').html('I said don\'t hover on me!');
-}
-// END DON'T HOVER ON ME DIV
-// KEYLISTENER STUFF BELOW
-
-document.addEventListener('keydown', function(e) {
-    console.log(String.fromCharCode(e.keyCode));
-    $('#keyLogger').append(String.fromCharCode(e.keyCode));
-});
-
-// END KEYLISTENER
-// FORM VALIDATION BELOW
-$('#validateForm').click(validate);
-
-function validate() {
-    var userValid = document.getElementById("username");
-    var passValid = document.getElementById("password");
-    var validateMessage = document.getElementById("validateMessage");
-    var isUsernameBad = true;
-    var isPassBad = true;
-
-    for (i = 0; i < userValid.value.length; i++) {
-        if (userValid.value[i] >= 0) {
-            isUsernameBad = false;
-        }
-    }
-
-    if (passValid.value == 1234) {
-        isPassBad = false;
-    }
-
-    if (isUsernameBad == false && isPassBad == false) {
-        validateMessage.innerHTML = "Good job! You just fake signed in to this shitty app!";
-    } else {
-        validateMessage.innerHTML = "Your username or password is incorrect!";
-        alert('Hey! Looks like something went wrong. Check the error message at the bottom.');
-    }
-}
+// // BUTTONS ARGUING
+//
+// $('#person1').click(hello1);
+// $('#person2').click(hello2);
+//
+// function hello1() {
+//     $('#argument').html('I am right!');
+// }
+//
+// function hello2() {
+//     $('#argument').html('No I am right!');
+// }
+//
+// // END BUTTONS ARGUING
+// // DON'T HOVER ON ME DIV
+//
+// $('#hoverGuy').hover(hover1);
+//
+// function hover1() {
+//     $('#hoverGuy p').html('I said don\'t hover on me!');
+// }
+// // END DON'T HOVER ON ME DIV
+// // KEYLISTENER STUFF BELOW
+//
+// document.addEventListener('keydown', function(e) {
+//     console.log(String.fromCharCode(e.keyCode));
+//     $('#keyLogger').append(String.fromCharCode(e.keyCode));
+// });
+//
+// // END KEYLISTENER
+// // FORM VALIDATION BELOW
+// $('#validateForm').click(validate);
+//
+// function validate() {
+//     var userValid = document.getElementById("username");
+//     var passValid = document.getElementById("password");
+//     var validateMessage = document.getElementById("validateMessage");
+//     var isUsernameBad = true;
+//     var isPassBad = true;
+//
+//     for (i = 0; i < userValid.value.length; i++) {
+//         if (userValid.value[i] >= 0) {
+//             isUsernameBad = false;
+//         }
+//     }
+//
+//     if (passValid.value == 1234) {
+//         isPassBad = false;
+//     }
+//
+//     if (isUsernameBad == false && isPassBad == false) {
+//         validateMessage.innerHTML = "Good job! You just fake signed in to this shitty app!";
+//     } else {
+//         validateMessage.innerHTML = "Your username or password is incorrect!";
+//         alert('Hey! Looks like something went wrong. Check the error message at the bottom.');
+//     }
+// }
 // END FORM VALIDATION
 
 // JUKEBOX
 
-var playBtn = $('#jukebox-play');
-var pauseBtn = $('#jukebox-pause');
-var currentSong = $('#jukebox-current-song');
-
-playBtn.click(jukeboxPlay);
-pauseBtn.click(jukeboxPause);
-
-function jukeboxPlay() {
-	 currentSong[0].play();
-}
-
-function jukeboxPause() {
-	 currentSong[0].pause();
-}
-
 function Jukebox() {
-	this.songs = [];
-}
+    this.songs = [];
+    this.playCurrent = function(index) {
+        var playThis = new Audio(this.songs[index].url);
+		  var isPlaying = false;
 
+		  if (isPlaying == false) {
+			  var isPlaying = true;
+			  playThis.play();
+		  } else {
+			  var isPlaying = false;
+			  playThis.pause();
+		  }
+
+    }
+    this.loadList = function() {
+        for (i = 0; i < this.songs.length; i++) {
+            $('#jukebox-playlist').append('<li>' + this.songs[i].artist + ' - ' + this.songs[i].title + '</li>');
+        }
+		  $('#jukebox-current h1').html(this.songs[0].title);
+		  $('#jukebox-current h2').html(this.songs[0].artist);
+    }
+}
 var myJukebox = new Jukebox();
 
-function Song(title, artist, url) {
-    this.title = title;
+function Song(artist, title, url) {
     this.artist = artist;
+    this.title = title;
     this.url = url;
-	//  this.currentSong = function() {
-	// 	 $('#jukebox-current h1').html(this.title);
-	// 	 $('#jukebox-current h2').html(this.artist);
-	// 	 $('#jukebox-current video').attr('src', (this.url));
-	//  }
     myJukebox.songs.push(this);
 }
 
 var song1 = new Song('J.Cole', 'Return of Simba', 'assets/audio/return-of-simba.mp3');
 var song2 = new Song('Griz', 'Getting Live', 'assets/audio/getting-live.mp3');
 
-// song2.currentSong();
+$(document).ready(myJukebox.loadList());
 
-console.log(myJukebox.songs[1].title);
+$('#jukebox-play').click(function() {
+    myJukebox.playCurrent(1);
+});
+$('#jukebox-playlist li').dblclick(function() {
+	myJukebox.playCurrent(1);
+});
+$('#jukebox-playlist li').dblclick(function() {
+	myJukebox.playCurrent(1);
+});
+
+// SOUNDCLOUD 4/3/17
