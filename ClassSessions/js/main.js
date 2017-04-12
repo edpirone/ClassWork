@@ -428,7 +428,6 @@
 // console.log(human1.description;
 
 
-
 // OBJECTS
 
 // function Worker(fName, lName, location, age) {
@@ -500,7 +499,6 @@
 // });
 
 
-
 // var searchValue = $("#search").keyup(returnResults);
 //
 // function returnResults() {
@@ -526,7 +524,6 @@
 
 
 // END 03.26.17
-
 
 
 // ISAAC THIS IS THE HOMEWORK FOR DOM ELEMENT STUFF
@@ -593,50 +590,70 @@
 // JUKEBOX
 
 function Jukebox() {
-    this.songs = [];
-    this.playCurrent = function(index) {
-        var playThis = new Audio(this.songs[index].url);
-		  var isPlaying = false;
+   var isPlaying = false;
 
-		  if (isPlaying == false) {
-			  var isPlaying = true;
-			  playThis.play();
-		  } else {
-			  var isPlaying = false;
-			  playThis.pause();
-		  }
+   this.songs = [];
+	this.loadSong = function (index) {
+		$('#jukebox-current h1').html(this.songs[index].title);
+      $('#jukebox-current h2').html(this.songs[index].artist);
+	}
+   this.playSong = function (index) {
+      // var playThis = new Audio(this.songs[index].url);
+		// $('#jukebox-current-song').pause();
+		$('#jukebox-current-song').attr('src', (this.songs[index].url));
+		$('#jukebox-current-song').play();
+		// var isPlaying = true;
 
-    }
-    this.loadList = function() {
-        for (i = 0; i < this.songs.length; i++) {
-            $('#jukebox-playlist').append('<li>' + this.songs[i].artist + ' - ' + this.songs[i].title + '</li>');
-        }
-		  $('#jukebox-current h1').html(this.songs[0].title);
-		  $('#jukebox-current h2').html(this.songs[0].artist);
-    }
+		// playThis.play();
+
+      //   var isPlaying = false;
+      //   if (isPlaying == false) {
+      // 	  var isPlaying = true;
+      // 	  playThis.play();
+      //   } else {
+      // 	  var isPlaying = false;
+      // 	  playThis.pause();
+      //   }
+
+   }
+   this.loadList = function () {
+      for (i = 0; i < this.songs.length; i++) {
+         $('#jukebox-playlist').append('<li>' + this.songs[i].artist + ' - ' + this.songs[i].title + '</li>');
+      }
+      $('#jukebox-current h1').html(this.songs[0].title);
+      $('#jukebox-current h2').html(this.songs[0].artist);
+   }
 }
 var myJukebox = new Jukebox();
 
 function Song(artist, title, url) {
-    this.artist = artist;
-    this.title = title;
-    this.url = url;
-    myJukebox.songs.push(this);
+   this.artist = artist;
+   this.title = title;
+   this.url = url;
+   myJukebox.songs.push(this);
 }
 
 var song1 = new Song('J.Cole', 'Return of Simba', 'assets/audio/return-of-simba.mp3');
 var song2 = new Song('Griz', 'Getting Live', 'assets/audio/getting-live.mp3');
+var song3 = new Song('Griz', 'Getting Live', 'assets/audio/getting-live.mp3');
+var song4 = new Song('J.Cole', 'Return of Simba', 'assets/audio/return-of-simba.mp3');
 
 $(document).ready(myJukebox.loadList());
 
-$('#jukebox-play').click(function() {
-    myJukebox.playCurrent(1);
+// $('#jukebox-playlist li').dblclick(function() {
+// 	console.log('test');
+// 	myJukebox.loadSong();
+// });
+// $('#jukebox-play').click(function () {
+//    myJukebox.playSong(0);
+// });
+
+$('#jukebox-playlist li').dblclick(function () {
+   myJukebox.playSong($(this).index());
 });
-$('#jukebox-playlist li').dblclick(function() {
-	myJukebox.playCurrent(1);
-});
-$('#jukebox-playlist li').dblclick(function() {
-	myJukebox.playCurrent(1);
-});
+
+// $('#jukebox-playlist li').dblclick(function() {
+// 	myJukebox.playSong(1);
+// });
 
 // SOUNDCLOUD 4/3/17

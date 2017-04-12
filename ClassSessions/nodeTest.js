@@ -3,5 +3,5 @@ for (i = 10; i >= 1; i--) {
     setTimeout(function() {
         console.log('* '.repeat(loop) + ' ' + loop);
         loop = loop - 1;
-    }, 500 * i);
+    }, 1000 * i);
 }
